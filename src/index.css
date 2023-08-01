@@ -1,0 +1,29 @@
+:root {
+  --color-main: #4ba9ff;
+  --color-main-dark: #110e3b;
+  --color-bg: #ffffff;
+
+  --color-dark: #464646;
+  --color-light-1: #f2f4f8;
+  --color-light-2: #c7c2cf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--color-dark, #464646);
+}
+

@@ -1,0 +1,8 @@
+.header {
+  padding: 2rem 0;
+  font-size: 3rem;
+}
+
+.header strong {
+  font-weight: 900;
+}
