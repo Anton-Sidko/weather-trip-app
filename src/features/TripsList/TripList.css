@@ -1,0 +1,11 @@
+.trip-list {
+  --item-in-row: 4;
+  --gap: 3rem;
+  --aspect-ratio: 7 / 6;
+
+  max-width: 100%;
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  margin-top: 4rem;
+}

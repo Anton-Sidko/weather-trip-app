@@ -28,3 +28,8 @@ body {
   color: var(--color-dark, #464646);
 }
 
+ul,
+li {
+  list-style: none;
+}
+

@@ -12,7 +12,7 @@ const AppLayout = function () {
       <div className="content">
         <Header />
         <main>
-          <SearchBar />
+          <SearchBar placeholder="Search your trip" />
           <TripList />
           <WeatherForecast />
         </main>

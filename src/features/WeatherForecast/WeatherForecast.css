@@ -1,0 +1,14 @@
+.weather-forecast {
+  margin-top: 4rem;
+}
+
+.forecast-list {
+  --item-in-row: 7;
+  --gap: 2rem;
+
+  max-width: 100%;
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  margin-top: 3rem;
+}

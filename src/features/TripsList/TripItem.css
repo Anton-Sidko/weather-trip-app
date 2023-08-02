@@ -1,0 +1,30 @@
+.trip-item {
+  width: calc(
+    (100% - var(--gap) * (var(--item-in-row) - 1)) / var(--item-in-row)
+  );
+  flex-shrink: 0;
+  font-size: 1.6rem;
+}
+
+.trip-item .trip-descr {
+  padding: 1em;
+  border: 1px solid var(--color-light-1);
+}
+
+.trip-item .trip-descr.active {
+  border: 1px solid var(--color-main);
+}
+
+.trip-item .trip-dates {
+  margin-top: 0.5em;
+  color: var(--color-light-2);
+  font-size: 0.9em;
+}
+
+.trip-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--aspect-ratio);
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}

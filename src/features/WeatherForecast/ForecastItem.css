@@ -1,0 +1,22 @@
+.day-forecast {
+  width: calc(
+    (100% - var(--gap) * (var(--item-in-row) - 1)) / var(--item-in-row)
+  );
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.day-forecast .day {
+  color: var(--color-light-2);
+}
+.day-forecast .day span {
+  display: block;
+}
+
+.day-forecast .icon {
+  font-size: 3em;
+}
