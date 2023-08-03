@@ -6,11 +6,13 @@
   height: 100%;
   color: #ffffff;
   background-color: var(--color-main-dark);
+  padding: 2rem;
 }
 
 .trip-info h2 {
   font-size: 3.6rem;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .trip-info h3 {

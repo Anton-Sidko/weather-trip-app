@@ -5,7 +5,7 @@ import TripItem from './TripItem';
 import './TripList.css';
 
 const TripList = function () {
-  const { trips, currentTrip } = useTrips();
+  const { trips } = useTrips();
 
   return (
     <ul className="trip-list">
@@ -13,7 +13,6 @@ const TripList = function () {
         <TripItem
           key={trip.tripId}
           trip={trip}
-          currentTrip={currentTrip}
         />
       ))}
 

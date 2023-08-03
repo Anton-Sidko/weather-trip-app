@@ -3,13 +3,13 @@ export const initialTripState = {
     {
       cityName: 'Kharkiv',
       tripId: '1691048550545',
-      startDate: '03-08-2023',
-      endDate: '07-08-2023',
+      startDate: '10-08-2023',
+      endDate: '12-08-2023',
     },
     {
       cityName: 'Klaipeda',
       tripId: '1691048653753',
-      startDate: '10-08-2023',
+      startDate: '14-08-2023',
       endDate: '21-08-2023',
     },
   ],
@@ -18,6 +18,7 @@ export const initialTripState = {
   isLoadingTodayForecast: false,
   rangeForecast: {},
   todayForecast: {},
+  error: '',
 };
 
 export const cityList = [
@@ -44,4 +45,16 @@ export const cityImageList = {
   Vilnius: '/vilnius.jpg',
   Klaipeda: '/klaipeda.jpg',
   Rome: '/rome.jpg',
+};
+
+export const weatherIconSet = {
+  snow: '🌨',
+  rain: '🌧',
+  fog: '🌫',
+  wind: '💨',
+  cloudy: '☁',
+  'partly-cloudy-day': '⛅',
+  'partly-cloudy-night': '⛅',
+  'clear-day': '☀',
+  'clear-night': '🌕',
 };

@@ -8,6 +8,7 @@ import {
   fetchedTodayForecast,
   loadingRange,
   loadingToday,
+  makeTripCurrent,
 } from './actions';
 import {
   getForecastByCityOnDateRange,
@@ -25,6 +26,7 @@ const TripsProvider = function ({ children }) {
       isLoadingTodayForecast,
       rangeForecast,
       todayForecast,
+      error,
     },
     dispatch,
   ] = useReducer(tripReducer, initialTripState);
@@ -53,6 +55,15 @@ const TripsProvider = function ({ children }) {
     }
   };
 
+  const chooseCurrentTrip = function (tripId) {
+    const { cityName, startDate, endDate } = trips.find(
+      (trip) => trip.tripId === tripId
+    );
+
+    dispatch(makeTripCurrent(tripId));
+    getTodayForecast(cityName);
+  };
+
   return (
     <TripsContext.Provider
       value={{
@@ -62,8 +73,10 @@ const TripsProvider = function ({ children }) {
         isLoadingTodayForecast,
         rangeForecast,
         todayForecast,
+        error,
         getRangeForecast,
         getTodayForecast,
+        chooseCurrentTrip,
       }}
     >
       {children}

@@ -22,6 +22,11 @@ export const tripReducer = function (state, action) {
         isLoadingTodayForecast: false,
         todayForecast: action.payload,
       };
+    case 'trip/choose-current':
+      return {
+        ...state,
+        currentTrip: action.payload,
+      };
     case 'rejected':
       return {
         ...state,

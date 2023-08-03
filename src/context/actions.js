@@ -20,3 +20,8 @@ export const fetchError = (payload) => ({
   type: 'rejected',
   payload,
 });
+
+export const makeTripCurrent = (payload) => ({
+  type: 'trip/choose-current',
+  payload,
+});

@@ -1,13 +1,19 @@
+import { useTrips } from '../../context/TripsContext';
 import { cityImageList } from '../../const';
+
 import './TripItem.css';
 
-const TripItem = function ({ trip, currentTrip }) {
+const TripItem = function ({ trip }) {
+  const { currentTrip, chooseCurrentTrip } = useTrips();
   const { cityName, tripId, startDate, endDate } = trip;
   const isActiveTrip = currentTrip === tripId;
   const cityImage = cityImageList[cityName];
 
   return (
-    <li className="trip-item">
+    <li
+      className="trip-item"
+      onClick={() => chooseCurrentTrip(tripId)}
+    >
       <img
         src={cityImage}
         alt={`Photo of ${cityName}`}
