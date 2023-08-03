@@ -1,7 +1,10 @@
+import { cityImageList } from '../../const';
 import './TripItem.css';
 
-const TripItem = function ({ trip }) {
-  const { cityName, cityImage, activeTrip } = trip;
+const TripItem = function ({ trip, currentTrip }) {
+  const { cityName, tripId, startDate, endDate } = trip;
+  const isActiveTrip = currentTrip === tripId;
+  const cityImage = cityImageList[cityName];
 
   return (
     <li className="trip-item">
@@ -10,10 +13,10 @@ const TripItem = function ({ trip }) {
         alt={`Photo of ${cityName}`}
       />
 
-      <div className={`trip-descr ${activeTrip ? 'active' : ''}`}>
+      <div className={`trip-descr ${isActiveTrip ? 'active' : ''}`}>
         <h3>{cityName}</h3>
         <div className="trip-dates">
-          <span>14.07.2023</span> - <span>21.07.2023</span>
+          <span>{startDate}</span> - <span>{endDate}</span>
         </div>
       </div>
     </li>

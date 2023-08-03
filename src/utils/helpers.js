@@ -1,11 +1,13 @@
-export function formatDate(dateStr) {
-  return new Intl.DateTimeFormat('en', {
-    day: 'numeric',
-    month: 'short',
-    hour: '2-digit',
-    minute: '2-digit',
-  }).format(new Date(dateStr));
-}
+// export function formatDate(dateStr) {
+//   // const formattedDate = new Date(dateStr).toISOString();
+
+//   // return formattedDate;
+//   // return new Intl.DateTimeFormat('en', {
+//   //   year: 'numeric',
+//   //   day: 'numeric',
+//   //   month: '2-digit',
+//   // }).format(new Date(dateStr));
+// }
 
 export function calcMinutesLeft(dateStr) {
   const d1 = new Date().getTime();

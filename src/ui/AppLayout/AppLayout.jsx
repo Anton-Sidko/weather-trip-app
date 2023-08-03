@@ -1,6 +1,7 @@
 import TripInfo from '../../features/TripInfo/TripInfo';
 import TripList from '../../features/TripsList/TripList';
 import WeatherForecast from '../../features/WeatherForecast/WeatherForecast';
+
 import Header from '../Header/Header';
 import SearchBar from '../SearchBar/SearchBar';
 

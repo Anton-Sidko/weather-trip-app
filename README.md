@@ -2,7 +2,7 @@
 
 [Link](some-link) to preview on Netlify.
 
-This project created using vite. Styling with pure CSS.
+This project created using vite. Styling with pure CSS. State management: Context + useReducer().
 
 ### Realized next features:
 
