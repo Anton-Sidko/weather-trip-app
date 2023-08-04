@@ -33,3 +33,14 @@ li {
   list-style: none;
 }
 
+input,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  line-height: 1;
+  appearance: none;
+  outline: none;
+}
+

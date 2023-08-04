@@ -1,12 +1,15 @@
 import { useState } from 'react';
 
 import './SearchBar.css';
+import { useTrips } from '../../context/TripsContext';
 
 const SearchBar = function ({ placeholder = 'Search' }) {
   const [searchQuery, setSearchQuery] = useState('');
+  const { searchTrips } = useTrips();
 
   const handleInputChange = function (e) {
     setSearchQuery(e.target.value);
+    searchTrips(e.target.value.toLowerCase());
   };
 
   return (

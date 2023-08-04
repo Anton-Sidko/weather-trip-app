@@ -27,6 +27,24 @@ export const tripReducer = function (state, action) {
         ...state,
         currentTrip: action.payload,
       };
+    case 'trip/search-trip':
+      return {
+        ...state,
+        searchQuery: action.payload,
+        filteredTrips: state.trips.filter((trip) =>
+          trip.cityName.toLowerCase().includes(action.payload)
+        ),
+      };
+    case 'trip/sort-trip':
+      // As we don't need anymore unsorted trips array, we can sort it on place
+      return {
+        ...state,
+        trips: [...state.trips].sort(
+          (cur, next) =>
+            new Date(cur.startDate).getTime() -
+            new Date(next.startDate).getTime()
+        ),
+      };
     case 'rejected':
       return {
         ...state,

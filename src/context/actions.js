@@ -25,3 +25,12 @@ export const makeTripCurrent = (payload) => ({
   type: 'trip/choose-current',
   payload,
 });
+
+export const setSearchQuery = (payload) => ({
+  type: 'trip/search-trip',
+  payload,
+});
+
+export const sortTripsByStartDate = () => ({
+  type: 'trip/sort-trip',
+});

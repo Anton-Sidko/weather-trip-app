@@ -11,4 +11,5 @@
   gap: var(--gap);
   overflow-x: auto;
   margin-top: 3rem;
+  padding-bottom: 2rem;
 }

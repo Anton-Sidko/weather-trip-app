@@ -1,9 +1,9 @@
 import TripInfo from '../../features/TripInfo/TripInfo';
 import TripList from '../../features/TripsList/TripList';
 import WeatherForecast from '../../features/WeatherForecast/WeatherForecast';
+import ControlBar from '../ControlBar/ControlBar';
 
 import Header from '../Header/Header';
-import SearchBar from '../SearchBar/SearchBar';
 
 import './AppLayout.css';
 
@@ -13,7 +13,7 @@ const AppLayout = function () {
       <div className="content">
         <Header />
         <main>
-          <SearchBar placeholder="Search your trip" />
+          <ControlBar />
           <TripList />
           <WeatherForecast />
         </main>

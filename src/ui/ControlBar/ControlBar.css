@@ -1,0 +1,6 @@
+.control-bar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.8rem;
+}

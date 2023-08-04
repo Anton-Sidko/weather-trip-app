@@ -9,6 +9,8 @@ import {
   loadingRange,
   loadingToday,
   makeTripCurrent,
+  setSearchQuery,
+  sortTripsByStartDate,
 } from './actions';
 import {
   getForecastByCityOnDateRange,
@@ -27,6 +29,8 @@ const TripsProvider = function ({ children }) {
       rangeForecast,
       todayForecast,
       error,
+      filteredTrips,
+      searchQuery,
     },
     dispatch,
   ] = useReducer(tripReducer, initialTripState);
@@ -56,12 +60,20 @@ const TripsProvider = function ({ children }) {
   };
 
   const chooseCurrentTrip = function (tripId) {
-    const { cityName, startDate, endDate } = trips.find(
-      (trip) => trip.tripId === tripId
-    );
+    const currentTrip = trips.find((trip) => trip.tripId === tripId);
+    const { cityName, startDate, endDate } = currentTrip;
 
-    dispatch(makeTripCurrent(tripId));
+    dispatch(makeTripCurrent(currentTrip));
     getTodayForecast(cityName);
+    getRangeForecast(cityName, startDate, endDate);
+  };
+
+  const searchTrips = function (searchQuery) {
+    dispatch(setSearchQuery(searchQuery));
+  };
+
+  const sortTrips = function () {
+    dispatch(sortTripsByStartDate());
   };
 
   return (
@@ -74,9 +86,11 @@ const TripsProvider = function ({ children }) {
         rangeForecast,
         todayForecast,
         error,
-        getRangeForecast,
-        getTodayForecast,
+        filteredTrips,
+        searchQuery,
         chooseCurrentTrip,
+        searchTrips,
+        sortTrips,
       }}
     >
       {children}
@@ -93,5 +107,4 @@ const useTrips = function () {
   return context;
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export { TripsProvider, useTrips };

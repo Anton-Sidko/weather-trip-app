@@ -1,17 +1,19 @@
+import { weatherIconSet } from '../../const';
+import { formatDate, getDayName } from '../../utils/helpers';
 import './ForecastItem.css';
 
 const ForecastItem = function ({ dayForecast }) {
-  const { date, day, icon, tempMax, tempMin } = dayForecast;
+  const { datetime, icon, tempmax, tempmin } = dayForecast;
 
   return (
     <li className="day-forecast">
       <p className="day">
-        <span>{day}</span>
-        {date}
+        <span>{getDayName(datetime)}</span>
+        {formatDate(datetime)}
       </p>
-      <div className="icon">{icon}</div>
+      <div className="icon">{weatherIconSet[icon]}</div>
       <p className="temperature">
-        <span>{tempMax}&deg;</span> / <span>{tempMin}&deg;</span>
+        <span>{tempmax}&deg;</span> / <span>{tempmin}&deg;</span>
       </p>
     </li>
   );

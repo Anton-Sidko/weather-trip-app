@@ -4,12 +4,13 @@ import TripCountdown from './TripCountdown';
 import Spinner from '../../ui/Spinner/Spinner';
 import ErrorMessage from '../../ui/ErrorMessage/ErrorMessage';
 
-import './TripInfo.css';
 import { getDayName } from '../../utils/helpers';
 import { weatherIconSet } from '../../const';
 
+import './TripInfo.css';
+
 const TripInfo = function () {
-  const { trips, currentTrip, isLoadingTodayForecast, todayForecast, error } =
+  const { currentTrip, isLoadingTodayForecast, todayForecast, error } =
     useTrips();
 
   if (!currentTrip) {
@@ -27,6 +28,7 @@ const TripInfo = function () {
       </div>
     );
   }
+
   if (error) {
     return (
       <div className="trip-info">
@@ -35,10 +37,7 @@ const TripInfo = function () {
     );
   }
 
-  const { cityName, startDate } = trips.find(
-    (trip) => trip.tripId === currentTrip
-  );
-
+  const { cityName, startDate } = currentTrip;
   const { datetime, temp, icon } = todayForecast.days[0];
 
   return (

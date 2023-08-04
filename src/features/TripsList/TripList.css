@@ -8,4 +8,5 @@
   gap: var(--gap);
   overflow-x: auto;
   margin-top: 4rem;
+  padding-bottom: 2rem;
 }

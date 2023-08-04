@@ -1,19 +1,31 @@
-// export function formatDate(dateStr) {
-//   // const formattedDate = new Date(dateStr).toISOString();
+export const formatDate = function (dateStr) {
+  const date = new Date(dateStr);
 
-//   // return formattedDate;
-//   // return new Intl.DateTimeFormat('en', {
-//   //   year: 'numeric',
-//   //   day: 'numeric',
-//   //   month: '2-digit',
-//   // }).format(new Date(dateStr));
-// }
+  const formattedDate = date.toLocaleDateString('ua', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
 
-export function calcMinutesLeft(dateStr) {
+  return formattedDate;
+};
+
+export const calcTimesLeft = function (dateStr) {
   const d1 = new Date().getTime();
   const d2 = new Date(dateStr).getTime();
-  return Math.round((d2 - d1) / 60000);
-}
+  const timeDiff = d2 - d1;
+
+  if (timeDiff <= 0) return null;
+
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+  return [days, hours, minutes, seconds];
+};
 
 export const getDayName = function (dateStr) {
   const date = new Date(dateStr);
