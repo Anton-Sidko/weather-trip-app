@@ -11,7 +11,12 @@ const ControlBar = function () {
     <div className="control-bar">
       <SearchBar placeholder="Search your trip" />
       {trips.length > 0 && (
-        <Button onClick={sortTrips}>Sort trips by start date</Button>
+        <Button
+          onClick={sortTrips}
+          type="secondary"
+        >
+          Sort trips by start date
+        </Button>
       )}
     </div>
   );

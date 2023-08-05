@@ -3,6 +3,7 @@ import { useTrips } from '../../context/TripsContext';
 import TripCountdown from './TripCountdown';
 import Spinner from '../../ui/Spinner/Spinner';
 import ErrorMessage from '../../ui/ErrorMessage/ErrorMessage';
+import Button from '../../ui/Button/Button';
 
 import { getDayName } from '../../utils/helpers';
 import { weatherIconSet } from '../../const';
@@ -10,8 +11,13 @@ import { weatherIconSet } from '../../const';
 import './TripInfo.css';
 
 const TripInfo = function () {
-  const { currentTrip, isLoadingTodayForecast, todayForecast, error } =
-    useTrips();
+  const {
+    currentTrip,
+    isLoadingTodayForecast,
+    todayForecast,
+    error,
+    removeTrip,
+  } = useTrips();
 
   if (!currentTrip) {
     return (
@@ -29,7 +35,7 @@ const TripInfo = function () {
     );
   }
 
-  if (error) {
+  if (error || !todayForecast) {
     return (
       <div className="trip-info">
         <ErrorMessage message={error} />
@@ -37,7 +43,7 @@ const TripInfo = function () {
     );
   }
 
-  const { cityName, startDate } = currentTrip;
+  const { cityName, startDate, tripId } = currentTrip;
   const { datetime, temp, icon } = todayForecast.days[0];
 
   return (
@@ -53,6 +59,13 @@ const TripInfo = function () {
       <h3>{cityName}</h3>
 
       <TripCountdown startDate={startDate} />
+
+      <Button
+        type="secondary"
+        onClick={() => removeTrip(tripId)}
+      >
+        Remove trip
+      </Button>
     </div>
   );
 };

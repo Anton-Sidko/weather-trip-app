@@ -34,3 +34,22 @@ export const setSearchQuery = (payload) => ({
 export const sortTripsByStartDate = () => ({
   type: 'trip/sort-trip',
 });
+
+export const toggleModal = () => ({
+  type: 'trip/toggle-modal',
+});
+
+export const addTrip = (payload) => ({
+  type: 'trip/add-trip',
+  payload,
+});
+
+export const deleteTrip = (payload) => ({
+  type: 'trip/delete-trip',
+  payload,
+});
+
+export const getTripsFromStorage = (payload) => ({
+  type: 'trip/get-trip',
+  payload,
+});

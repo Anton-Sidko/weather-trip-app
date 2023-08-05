@@ -34,13 +34,20 @@ li {
 }
 
 input,
+select,
 button {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
   font-style: inherit;
   line-height: 1;
-  appearance: none;
+  background-color: transparent;
+  border: none;
   outline: none;
+}
+
+input,
+button {
+  appearance: none;
 }
 

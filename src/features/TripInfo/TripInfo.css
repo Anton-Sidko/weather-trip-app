@@ -42,3 +42,8 @@
   font-size: 0.4em;
   color: var(--color-light-2);
 }
+
+.trip-info .button {
+  margin-top: 5rem;
+  color: #ffffff;
+}

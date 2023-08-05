@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useEffect, useReducer } from 'react';
 
 import { tripReducer } from './reducer';
 import { initialTripState } from '../const';
@@ -9,9 +9,14 @@ import {
   loadingRange,
   loadingToday,
   makeTripCurrent,
+  toggleModal,
   setSearchQuery,
   sortTripsByStartDate,
+  addTrip,
+  deleteTrip,
+  getTripsFromStorage,
 } from './actions';
+
 import {
   getForecastByCityOnDateRange,
   getForecastByCityOnToday,
@@ -26,6 +31,7 @@ const TripsProvider = function ({ children }) {
       currentTrip,
       isLoadingRangeForecast,
       isLoadingTodayForecast,
+      isCreatingTrip,
       rangeForecast,
       todayForecast,
       error,
@@ -34,6 +40,14 @@ const TripsProvider = function ({ children }) {
     },
     dispatch,
   ] = useReducer(tripReducer, initialTripState);
+
+  useEffect(() => {
+    const savedTrip = localStorage.getItem('trips');
+
+    if (!savedTrip) return;
+
+    dispatch(getTripsFromStorage(JSON.parse(savedTrip)));
+  }, []);
 
   const getRangeForecast = async function (city, startDate, endDate) {
     dispatch(loadingRange());
@@ -76,6 +90,22 @@ const TripsProvider = function ({ children }) {
     dispatch(sortTripsByStartDate());
   };
 
+  const toggleCreateTripModal = function () {
+    dispatch(toggleModal());
+  };
+
+  const createTrip = function (payload) {
+    dispatch(addTrip(payload));
+    localStorage.setItem('trips', JSON.stringify([...trips, payload]));
+  };
+
+  const removeTrip = function (payload) {
+    dispatch(deleteTrip(payload));
+
+    const newTrips = trips.filter((trip) => trip.tripId !== payload);
+    localStorage.setItem('trips', JSON.stringify(newTrips));
+  };
+
   return (
     <TripsContext.Provider
       value={{
@@ -83,6 +113,7 @@ const TripsProvider = function ({ children }) {
         currentTrip,
         isLoadingRangeForecast,
         isLoadingTodayForecast,
+        isCreatingTrip,
         rangeForecast,
         todayForecast,
         error,
@@ -91,6 +122,9 @@ const TripsProvider = function ({ children }) {
         chooseCurrentTrip,
         searchTrips,
         sortTrips,
+        toggleCreateTripModal,
+        createTrip,
+        removeTrip,
       }}
     >
       {children}

@@ -13,9 +13,7 @@
   cursor: pointer;
 }
 
-.add-trip-btn:focus,
-.add-trip-btn:hover,
-.add-trip-btn:active {
+.add-trip-btn:is(:focus, :hover, :active) {
   border: 1px solid var(--color-main);
 }
 

@@ -1,9 +1,16 @@
 import './Button.css';
 
-const Button = function ({ onClick, children }) {
+const Button = function ({ type = 'primary', onClick, children }) {
+  const typeClass =
+    type === 'primary'
+      ? 'button-primary'
+      : type === 'secondary'
+      ? 'button-secondary'
+      : '';
+
   return (
     <button
-      className="button-main"
+      className={`${typeClass} button`}
       onClick={onClick}
     >
       {children}

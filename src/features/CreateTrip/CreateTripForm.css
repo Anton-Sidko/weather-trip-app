@@ -1,0 +1,42 @@
+.create-trip-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 5rem;
+  gap: 1em;
+}
+
+.input-wrapper {
+  padding: 0 1.5em;
+}
+
+.input-wrapper label {
+  display: block;
+  font-weight: 700;
+}
+
+.input-wrapper label span {
+  color: orangered;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+  width: 100%;
+  padding: 0.5em 1em;
+  border: 1px solid var(--color-light-1);
+  border-radius: 4px;
+  margin-top: 0.5em;
+}
+
+.form-button-wrapper {
+  padding: 1em 1.5em;
+  border-top: 1px solid var(--color-light-1);
+  margin-top: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.form-button-wrapper .button {
+  border-radius: 4px;
+}

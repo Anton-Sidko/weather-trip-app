@@ -1,13 +1,26 @@
-.button-main {
-  border: 1px solid var(--color-light-2);
-  background-color: transparent;
-  padding: 0.5em 0.7em 0.6em;
+.button {
   cursor: pointer;
   border-radius: 1rem;
+  padding: 0.5em 0.7em 0.6em;
+  transition: all 0.3s;
 }
 
-.button-main:focus,
-.button-main:active,
-.button-main:hover {
+.button-primary {
+  background-color: var(--color-main);
+  border: 1px solid transparent;
+  color: var(--color-bg);
+}
+
+.button-primary:is(:focus, :active, :hover) {
+  color: var(--color-main);
+  border: 1px solid var(--color-light-2);
+  background-color: transparent;
+}
+
+.button-secondary {
+  border: 1px solid var(--color-light-2);
+}
+
+.button-secondary:is(:focus, :active, :hover) {
   border: 1px solid var(--color-main);
 }
