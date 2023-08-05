@@ -1,6 +1,6 @@
 # React Front-End test task
 
-[Link](https://weather-trip-app.netlify.app-link) to preview on Netlify.
+[Link](https://weather-trip-app.netlify.app) to preview on Netlify.
 
 This project created using vite. Styling with pure CSS. State management: Context + useReducer().
 
