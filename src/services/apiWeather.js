@@ -2,7 +2,7 @@ const API_URL =
   'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/';
 const API_SETTINGS = '?unitGroup=metric&include=days&contentType=json&key=';
 
-// place API_KEY there is BAD practice in real project, but for training and study purpose we can do it
+// place API_KEY here is BAD practice in real project, but for training and study purpose we can do it
 const API_KEY = 'G2SZXM3YFYGUAAEPHXXG5BQB8';
 
 export const getForecastByCityOnToday = async function (city) {
