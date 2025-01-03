@@ -3,7 +3,7 @@ const API_URL =
 const API_SETTINGS = '?unitGroup=metric&include=days&contentType=json&key=';
 
 // place API_KEY here is BAD practice in real project, but for training and study purpose we can do it
-const API_KEY = 'G2SZXM3YFYGUAAEPHXXG5BQB8';
+const API_KEY = 'TE9MZRRZJS4WUG2L4UZT8RA7M';
 
 export const getForecastByCityOnToday = async function (city) {
   const res = await fetch(`${API_URL}${city}/today${API_SETTINGS}${API_KEY}`);
